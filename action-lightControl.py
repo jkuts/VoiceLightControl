@@ -7,7 +7,7 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
 def intent_received(hermes, intent_message):
 
-	sentence = ''
+	sentence = 'what the hell is going on'
 
 
 
