@@ -1,9 +1,9 @@
 #!/usr/bin/env python2
-from hermes_python.hermes import Hermis
+from hermes_python.hermes import Hermes
 
 MQTT_IP_ADDR = "localhost"
-MQTT_PORT    = 1883
-MQTT_ADDR    = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
+MQTT_PORT = 1883
+MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
 def intent_received(hermes, intent_message):
 
@@ -12,7 +12,8 @@ def intent_received(hermes, intent_message):
 
 
 
-	hermis.publish_end_session(intent_message.message_id, sentence)
+	hermes.publish_end_session(intent_message.session_id, sentence)
 
-with Hermis(MQTT_ADDR) as h:
-	h.subscribe_intents(intent_received).start()
+
+with Hermes(MQTT_ADDR) as h:
+    h.subscribe_intents(intent_received).start(
